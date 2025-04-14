@@ -1,0 +1,2 @@
+# NeSO
+Neural Spline Operators
