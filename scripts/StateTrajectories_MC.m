@@ -1,0 +1,59 @@
+clear
+close all
+clc
+
+% Model of each agent (mass-spring-damper systems)
+beta_1 = 1;
+beta_2 = 1;
+A = [0, 1; -beta_1, -beta_2];
+B = [0; 1];
+C = [1, 0];
+
+% Sampling the state trajectories of MAS
+N = 7;
+n = 2;
+L = [5, -1, -1, -1, -1, -1, 0;
+    -1, 3, 0, -1, 0, 0, -1;
+    -1, 0, 2, 0, -1, 0, 0;
+    -1, -1, 0, 4, -1, -1, 0;
+    -1, 0, -1, -1, 4, -1, 0;
+    -1, 0, 0, -1, -1, 3, 0;
+    0, -1, 0, 0, 0, 0, 1];
+
+F = kron(eye(N),A) - kron(L,B*C);
+
+
+terminal_time = 10;
+time_num = 10000;
+path_num = 10000;
+dt = terminal_time / time_num;
+time = linspace(0, terminal_time, time_num + 1);
+X = zeros(n*N, time_num+1);
+
+% Setting the initial state vector
+initial_state_1 = transpose([0.3, 0.6, -0.6, 0.1, 0.3, -0.6, 0]);
+initial_state_2 = transpose([-0.4, 0.6, -0.4, 0.6, 0.3, 0.1, -0.6]);
+initial_state = kron(initial_state_1, [1;0]) + kron(initial_state_2, [0;1]);
+
+for i = 1:path_num
+    X(:,1,i) = initial_state;
+end
+
+sigma = 0.2; % SD of stochastic noise
+
+for j = 1:path_num
+    for i = 1:time_num
+        w = sigma * randn(n*N,1);
+        X(:,i+1,j) = (eye(n*N) + F*dt)*X(:,i,j) + sqrt(dt)*w;
+    end
+end
+
+figure
+hold on
+box on
+for i = 1:n*N
+    pbaspect([1,1,1])
+    plot(time, X(i,:,1), Linewidth=1)
+end
+
+save("../data/multi_agent/MC/StateTrajectories_MCdata.mat","-v7.3")
