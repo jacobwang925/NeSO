@@ -97,5 +97,19 @@ ylim([0, 1.02])
 filename = sprintf('multi_safe_prob.pdf');
 print(gcf, filename, '-dsvg');
 
+% Compute time-averaged absolute and relative differences
+abs_diff = abs(safeprob_FK - safeprob_stat);
+avg_abs_diff = mean(abs_diff);
+
+mask = safeprob_stat > 1e-8;  % avoid dividing by values too close to zero
+relative_diff = zeros(size(safeprob_stat));
+relative_diff(mask) = abs_diff(mask) ./ safeprob_stat(mask);
+avg_relative_diff = mean(relative_diff(mask));
+
+fprintf('Time-averaged absolute difference: %.4f\n', avg_abs_diff);
+fprintf('Time-averaged relative difference: %.4f (%.2f%%)\n', ...
+        avg_relative_diff, 100 * avg_relative_diff);
+
+
 
 
