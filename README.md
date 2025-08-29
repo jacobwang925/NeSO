@@ -1,5 +1,5 @@
 # NeSO
-An implementation of paper ["Neural Spline Operators for Risk Quantification in Stochastic Systems"](https://arxiv.org/abs/2312.10594), accepted at the 2025 Conference on Decision and Control (CDC).
+An implementation of paper ["Neural Spline Operators for Risk Quantification in Stochastic Systems"](https://arxiv.org/abs/2508.20288), accepted at the 2025 Conference on Decision and Control (CDC).
 
 
 
@@ -40,11 +40,11 @@ Pre-collected data and pre-trained models can be downloaded from [here](https://
 If you find our work helpful, please consider citing our paper.
 
 ```
-@article{wang2023physics,
-  title={Physics-informed Representation and Learning: Control and Risk Quantification},
-  author={Wang, Zhuoyuan and Keller, Reece and Deng, Xiyu and Hoshino, Kenta and Tanaka, Takashi and Nakahira, Yorie},
-  journal={arXiv preprint arXiv:2312.10594},
-  year={2023}
+@article{wang2025neural,
+  title={Neural Spline Operators for Risk Quantification in Stochastic Systems},
+  author={Wang, Zhuoyuan and Romagnoli, Raffaele and Azizzadenesheli, Kamyar and Nakahira, Yorie},
+  journal={arXiv preprint arXiv:2508.20288},
+  year={2025}
 }
 ```
 
