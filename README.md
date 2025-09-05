@@ -35,6 +35,11 @@ Pre-collected data and pre-trained models can be downloaded from [here](https://
 **Note:** remember to change the path while loading trained models.
 
 
+## Acknowledgement
+
+The PDE solver and Monte Carlo simulation are adapted from the simulation in the paper ["Orthogonal Modal Representation in Long-Term Risk Quantification for Dynamic Multi-Agent Systems"](https://ieeexplore.ieee.org/document/10816487). We appreciate the authors for sharing their code with us.
+
+
 ## Citation
 
 If you find our work helpful, please consider citing our paper.
