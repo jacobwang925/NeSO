@@ -1,5 +1,5 @@
 # NeSO
-An implementation of paper ["Neural Spline Operators for Risk Quantification in Stochastic Systems"](https://arxiv.org/abs/2508.20288), accepted at the 2025 IEEE Conference on Decision and Control (CDC).
+Official implementation of paper ["Neural Spline Operators for Risk Quantification in Stochastic Systems"](https://arxiv.org/abs/2508.20288), accepted to the 2025 IEEE Conference on Decision and Control (CDC).
 
 
 
